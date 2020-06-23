@@ -7,28 +7,44 @@
       rel="stylesheet"
       href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="css/main.css">
     <title>David's Blog</title>
   </head>
   <body>
+    
     <div class="container">
-      <div class="row">
-        <h2>Welcome to my Blog Site</h2>
-        <h3>Check out our blogs</h3>
       
+      <div class="row">
+        <div class="col-md">
+          <h2>Welcome to my Blog Site</h2>
+          <h3>Check out our blogs</h3>
+        </div>
+      </div>
+  
 
-      <div th:each="blog:${posts}">
+      <div class="row">
+        <div th:each="blog:${posts}">
           <div class="col-sm">
-              <div class="card">
-                  <div class="card-body">
-                      <h5 class="card-title" th:text="${blog.title}"></h5>
-                      <p th:text="${blog.author}"></p>
-                      <p th:text="${blog.bloEntry}"></p>
-                  </div>
-                  <div class="card-footer"></div>
-              </div> <!-- end of .card-->
-          </div> <!-- End of .col-sm-->
-      </div> <!-- End of post Loop-->
-    </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" th:text="${blog.title}"></h5>
+                <p th:text="${blog.author}"></p>
+                <p th:text="${blog.blogEntry}"></p>
+              </div>
+              <div class="card-footer"></div>
+            </div>
+            <!-- end of .card-->
+          </div>
+          <!-- End of .col-sm-->
+        </div>
+        <!-- End of post Loop-->
+      </div>
+
+      <div class="row">
+        <a href="/blogposts/new">
+          <button class="btn btn-secondary">Submit a New Blog Post</button>
+        </a>
+      </div>
     </div>
 
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
