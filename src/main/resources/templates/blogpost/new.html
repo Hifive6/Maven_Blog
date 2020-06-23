@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <title>David's Blog</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <p>Please use the form below to submit a blog post:</p>
+            <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="POST">
+              <label for="blogTitle">Title:</label>
+              <input type="text" name="blogTitle" th:field="*{title}" />
+    
+              <label for="blogAuthor">Author:</label>
+              <input type="text" name="blogAuthor" th:field="*{author}" />
+    
+              <label for="blogEntry">Blog Entry:</label>
+              <input type="text" name="blogEntry" th:field="*{blogEntry}" />
+    
+              <button type="submit">Submit your blog post</button>
+            </form>
+          </div>
+        </div>
+    
+        <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="webjars/popper.js/2.0.2/umd/popper.min.js"></script>
+        <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      </body>
+    </html>
+    

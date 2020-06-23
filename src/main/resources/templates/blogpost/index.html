@@ -25,26 +25,10 @@
                       <p th:text="${blog.bloEntry}"></p>
                   </div>
                   <div class="card-footer"></div>
-              </div>
-          </div>
-      </div>
+              </div> <!-- end of .card-->
+          </div> <!-- End of .col-sm-->
+      </div> <!-- End of post Loop-->
     </div>
-      <div class="row">
-        <p>Please use the form below to submit a blog post:</p>
-
-        <form action="#" th:action="@{/}" th:object="${blogPost}" method="POST">
-          <label for="blogTitle">Title:</label>
-          <input type="text" name="blogTitle" th:field="*{title}" />
-
-          <label for="blogAuthor">Author:</label>
-          <input type="text" name="blogAuthor" th:field="*{author}" />
-
-          <label for="blogEntry">Blog Entry:</label>
-          <input type="text" name="blogEntry" th:field="*{blogEntry}" />
-
-          <button type="submit">Submit your blog post</button>
-        </form>
-      </div>
     </div>
 
     <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
