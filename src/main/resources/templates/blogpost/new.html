@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="container">
+      <div th:replace="/fragments/navbar :: navbar"></div>
         <div class="row">
             <p>Please use the form below to submit a blog post:</p>
             <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="POST">
