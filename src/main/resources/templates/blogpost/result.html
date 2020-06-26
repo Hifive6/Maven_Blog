@@ -1,46 +1,43 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="../../webjars/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <title>David's Blog</title>
-  </head>
-  <body>
-      <div class="container-fluid">
-          <div th:replace="/fragments/navbar :: navbar"></div>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Zach's Blog Site</title>
 
-      </div>
-    <div class="container">
-      <div class="row">
-          <div class="col-xl">
-        
-        <p>Thank you for your submission!</p>
+		<div th:replace="/fragments/styling :: head-style"></div>
+	</head>
+	<body>
+		<div class="container">
+			<div th:replace="/fragments/navbar :: navbar"></div>
 
-        <h4>Blog Post</h4>
-        <p th:text="${blogPost.title}" /p> 
-          <p th:text="${blogPost.author}" /p> 
-            <p th:text="${blogPost.blogEntry}" /p>
-    </div>
-      </div>
-    
+			<div class="row">
+				<div class="col-xl">
+					<h3>Blog Post Form</h3>
+					<p>Thank you for your submission!</p>
 
-    <div class="row">
-        <div class="col-md">
-            <a href="/">
-            <button class= "btn btn-primary">Return Home</button>
-            </a>
-            <a href="/blogposts/new">
-            <button class= "btn btn-secondary">Create Another Blog Post</button>
-            </a>
-        </div>
-    </div>
-    </div>
+					<h4>Blog Post</h4>
+					<p th:text="${blogPost.title}" />
+					<p th:text="${blogPost.author}" />
+					<p th:text="${blogPost.blogEntry}" />
+				</div>
+			</div>
 
-    <script src="../../webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../../webjars/popper.js/2.0.2/umd/popper.min.js"></script>
-    <script src="../../webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  </body>
+			<div class="row">
+				<div class="col-md">
+					<a href="/">
+						<button class="btn btn-primary">Return Home</button>
+					</a>
+					<a href="#" th:href="@{/blogposts/{id}(id=${blogPost.id})}">
+						<button class="btn btn-light">Edit This Post</button>
+					</a>
+					<a href="/blogposts/new">
+						<button class="btn btn-secondary">Create Another Blog Post</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div th:replace="/fragments/styling :: body-links"></div>
+	</body>
 </html>

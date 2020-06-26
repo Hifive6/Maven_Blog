@@ -40,17 +40,18 @@ public class BlogPostController {
 
 
     @PostMapping(value = "/blogposts")
-    public String addNewBlogPost(BlogPost blogPost, Model model){
-        blogRepo.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));
+    public String addNewBlogPost(BlogPost blogPost, Model model) {
+        blogRepo.save(blogPost);
 
-        // add new blog posts as they're created to our posts list for indexing
+        // Add new blog posts as they're created to our posts list for indexing
         // posts.add(blogPost);
 
+        // Add attributes to our model so we can show them to the user on the results
+        // page
         model.addAttribute("blogPost", blogPost);
         // model.addAttribute("title", blogPost.getTitle());
         // model.addAttribute("author", blogPost.getAuthor());
         // model.addAttribute("blogEntry", blogPost.getBlogEntry());
-
         return "blogpost/result";
     }
 
