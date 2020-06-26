@@ -46,10 +46,10 @@ public class BlogPostController {
         // add new blog posts as they're created to our posts list for indexing
         // posts.add(blogPost);
 
-
-        model.addAttribute("title", blogPost.getTitle());
-        model.addAttribute("author", blogPost.getAuthor());
-        model.addAttribute("blogEntry", blogPost.getBlogEntry());
+        model.addAttribute("blogPost", blogPost);
+        // model.addAttribute("title", blogPost.getTitle());
+        // model.addAttribute("author", blogPost.getAuthor());
+        // model.addAttribute("blogEntry", blogPost.getBlogEntry());
 
         return "blogpost/result";
     }
@@ -84,11 +84,18 @@ public class BlogPostController {
              // of a recore arady in the database, it will save over it
              // instead of createing a new record
             blogRepo.save(actualPost);
-            model.addAttribute("title", actualPost.getTitle());
-        model.addAttribute("author", actualPost.getAuthor());
-        model.addAttribute("blogEntry", actualPost.getBlogEntry());
+            model.addAttribute("blogPost", blogPost);
+        //     model.addAttribute("title", actualPost.getTitle());
+        // model.addAttribute("author", actualPost.getAuthor());
+        // model.addAttribute("blogEntry", actualPost.getBlogEntry());
         }
         return "blogpost/result";
+    }
+
+    @RequestMapping(value = "blogposts/delete/{id}")
+    public String deletePostById(@PathVariable Long id){
+        blogRepo.deleteById(id);
+        return "blogpost/delete";
     }
 
     
