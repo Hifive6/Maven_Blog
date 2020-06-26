@@ -70,5 +70,26 @@ public class BlogPostController {
         return "blogpost/edit";
     }
 
+    @RequestMapping(value = "/blogposts/update/{id}")
+    public String updateExistingPost(@PathVariable Long id, BlogPost blogPost, Model model){
+        Optional<BlogPost> post = blogRepo.findById(id);
+        if(post.isPresent()){
+            BlogPost actualPost = post.get();
+            actualPost.setTitle(blogPost.getTitle());
+            actualPost.setAuthor(blogPost.getAuthor());
+            actualPost.setBlogEntry(blogPost.getBlogEntry());
+             // save() workds for both crateing new posts
+             // and overwriting existing posts
+             // If the primary key of the entity we give it matches the primary key
+             // of a recore arady in the database, it will save over it
+             // instead of createing a new record
+            blogRepo.save(actualPost);
+            model.addAttribute("title", actualPost.getTitle());
+        model.addAttribute("author", actualPost.getAuthor());
+        model.addAttribute("blogEntry", actualPost.getBlogEntry());
+        }
+        return "blogpost/result";
+    }
+
     
 }
