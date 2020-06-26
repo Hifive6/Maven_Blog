@@ -1,4 +1,8 @@
 html{
-    background-color: rgb(174, 171, 171);
+   background-color: gray;
     padding: 0.6em 1em;
 }
+navbar{
+    background-color: gray;
+}
+

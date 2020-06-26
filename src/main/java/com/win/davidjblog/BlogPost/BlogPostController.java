@@ -85,7 +85,7 @@ public class BlogPostController {
              // of a recore arady in the database, it will save over it
              // instead of createing a new record
             blogRepo.save(actualPost);
-            model.addAttribute("blogPost", blogPost);
+            model.addAttribute("blogPost", actualPost);
         //     model.addAttribute("title", actualPost.getTitle());
         // model.addAttribute("author", actualPost.getAuthor());
         // model.addAttribute("blogEntry", actualPost.getBlogEntry());

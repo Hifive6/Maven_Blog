@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Zach's Blog Site</title>
+		<title>David's Blog Site</title>
 
 		<div th:replace="/fragments/styling :: head-style"></div>
 	</head>
@@ -28,7 +28,7 @@
 					<a href="/">
 						<button class="btn btn-primary">Return Home</button>
 					</a>
-					<a href="#" th:href="@{/blogposts/{id}(id=${blogPost.id})}">
+          <a href="#" th:href="@{/blogposts/{id}(id=${blogPost.id})}">
 						<button class="btn btn-light">Edit This Post</button>
 					</a>
 					<a href="/blogposts/new">
