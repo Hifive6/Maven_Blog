@@ -19,6 +19,10 @@ public class BlogPostController {
 
     @GetMapping(value = "/")
     public String index(BlogPost blogPost, Model model){
+        posts.removeAll(posts);
+        for(BlogPost post : blogRepo.findAll()){
+            posts.add(post);
+        }
         model.addAttribute("posts", posts);
         return "blogpost/index";
     }
@@ -34,7 +38,11 @@ public class BlogPostController {
     @PostMapping(value = "/blogposts")
     public String addNewBlogPost(BlogPost blogPost, Model model){
         blogRepo.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));
-        posts.add(blogPost);
+
+        // add new blog posts as they're created to our posts list for indexing
+        // posts.add(blogPost);
+
+
         model.addAttribute("title", blogPost.getTitle());
         model.addAttribute("author", blogPost.getAuthor());
         model.addAttribute("blogEntry", blogPost.getBlogEntry());
